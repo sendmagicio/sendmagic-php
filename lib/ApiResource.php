@@ -4,6 +4,7 @@ namespace SendMagic;
 
 use SendMagic\Exceptions\Api;
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Response;
 
 class ApiResource {
 
@@ -29,35 +30,32 @@ class ApiResource {
 	{
 		$endpoint = $this->baseUrl . $path;
 		$response = $this->client->request('POST', $endpoint, [
-			'json' => json_encode($params),
+			'json' => $params,
 			'auth' => [$this->secret_key, null],
 			'headers' => [
 				'Accept' => 'application/json'
 			],
 		]);
-		return $response;
-		// return $this->handleResponse($response);
+		return $this->handleResponse($response);
 	}
 
 	protected function delete_request($path, array $params)
 	{
 		$endpoint = $this->baseUrl . $path;
 		$response = $this->client->request('DELETE', $endpoint, [
-			'json' => json_encode($params),
+			'json' => $params,
 			'auth' => [$this->secret_key, null],
 			'headers' => [
 				'Accept' => 'application/json'
 			],
 		]);
-		return $response;
-		// return $this->handleResponse($response);
+		return $this->handleResponse($response);
 	}
 
 	private function handleResponse(Response $response)
 	{
-		// $this->setRateLimitDetails($response);
-		// $stream = \GuzzleHttp\Psr7\stream_for($response->getBody());
-		// $data = json_decode($stream);
-		// return $data;
+		$stream = \GuzzleHttp\Psr7\stream_for($response->getBody());
+		$data = json_decode($stream);
+		return $data;
 	}
 }
