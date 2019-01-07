@@ -10,7 +10,7 @@ class SendMagicContacts extends ApiResource {
 	{
 		$this->validateParams($params);
 		
-		$response = $this->post($this->resourcePath, $params);
+		$response = $this->post_request($this->resourcePath, $params);
 		return $response;
 
 		// $obj = \Stripe\Util\Util::convertToStripeObject($response->json, $opts);
@@ -20,7 +20,7 @@ class SendMagicContacts extends ApiResource {
 
 	public function delete($id)
 	{
-		$response = $this->delete($this->resourcePath, $id);
+		$response = $this->delete_request($this->resourcePath, $id);
 		return $response;
 	}
 }

@@ -25,7 +25,7 @@ class ApiResource {
 		}
 	}
 
-	protected function post($path, array $params)
+	protected function post_request($path, array $params)
 	{
 		$endpoint = $this->baseUrl . $path;
 		$response = $this->client->request('POST', $endpoint, [
@@ -39,7 +39,7 @@ class ApiResource {
 		// return $this->handleResponse($response);
 	}
 
-	protected function delete($path, array $params)
+	protected function delete_request($path, array $params)
 	{
 		$endpoint = $this->baseUrl . $path;
 		$response = $this->client->request('DELETE', $endpoint, [
