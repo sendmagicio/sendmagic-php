@@ -20,7 +20,7 @@ class SendMagicContacts extends ApiResource {
 
 	public function delete($id)
 	{
-		$response = $this->delete($this->resourcePath . '/' . $id);
+		$response = $this->delete($this->resourcePath, $id);
 		return $response;
 	}
 }
