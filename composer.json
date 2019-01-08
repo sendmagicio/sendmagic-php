@@ -1,13 +1,18 @@
 {
     "name": "sendmagic/sendmagic-php",
-    "description": "PHP SDK for Send Magic.",
-    "type": "library",
+    "description": "Send Magic PHP library.",
+    "keywords": [
+        "sendmagic",
+        "email",
+        "api"
+    ],
+    "homepage": "https://sendmagic.io",
     "license": "Apache",
-    "keywords": ["sendmagic", "email"],
     "authors": [
         {
             "name": "Send Magic",
-            "email": "support@simpleinvoices.io"
+            "email": "support@sendmagic.io",
+            "homepage": "https://github.com/sendmagicio/sendmagic-php"
         }
     ],
     "require": {
